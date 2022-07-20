@@ -4,44 +4,26 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed;
-
     public Rigidbody2D rb;
-
-    private Vector2 moveDirection;
-
     public Camera cam;
 
+    public float moveSpeed = 5f;
+
+    Vector2 movement;
     Vector2 mousePos;
 
     void Update()
     {
-        ProcessInputs();
+       movement.x = Input.GetAxisRaw("Horizontal");
+       movement.y = Input.GetAxisRaw("Vertical");
+
+       mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
     }
 
     void FixedUpdate()
     {
-        Move();
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
         Vector2 lookDir = mousePos - rb.position;
-
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg -90f;
-
-        rb.rotation = angle;
-    }
-
-    void ProcessInputs()
-    {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
-
-        moveDirection = new Vector2(moveX, moveY).normalized;
-
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-    }
-
-    void Move()
-    {
-        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
     }
 }

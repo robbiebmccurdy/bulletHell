@@ -5347,7 +5347,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8929539, y: 1}
+    m_SensorSize: {x: 2.1644204, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5434,7 +5434,7 @@ GameObject:
   - component: {fileID: 1974475843}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5560,9 +5560,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 256627ff0735dc2478e41008297d98ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 15
   rb: {fileID: 1974475840}
   cam: {fileID: 519420031}
+  moveSpeed: 15
 --- !u!61 &1974475842
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5648,7 +5648,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3484125759030263380, guid: e8040898fdd099c478add35374dfab23, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3484125759030263382, guid: e8040898fdd099c478add35374dfab23, type: 3}
       propertyPath: target
@@ -5656,7 +5656,7 @@ PrefabInstance:
       objectReference: {fileID: 1974475838}
     - target: {fileID: 3484125759030263382, guid: e8040898fdd099c478add35374dfab23, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3484125759030263389, guid: e8040898fdd099c478add35374dfab23, type: 3}
       propertyPath: m_Name
@@ -5664,7 +5664,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3484125759030263389, guid: e8040898fdd099c478add35374dfab23, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484125759030263389, guid: e8040898fdd099c478add35374dfab23, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 3484125759030263390, guid: e8040898fdd099c478add35374dfab23, type: 3}
       propertyPath: m_RootOrder

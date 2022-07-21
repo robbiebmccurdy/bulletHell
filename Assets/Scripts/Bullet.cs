@@ -9,6 +9,10 @@ public class Bullet : MonoBehaviour
 
    public float bulletForce = 20f;
 
+   public int damage;
+
+   public GameObject enemy;
+
     // Update is called once per frame
     void Update()
     {
@@ -20,11 +24,17 @@ public class Bullet : MonoBehaviour
 
     void Shoot()
     {
-        RaycastHit2D hitInfo = Physics2D.Raycast(firePoint.position, firePoint.right);
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+    }
 
-        if(hitInfo)
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if(collision.gameObject.CompareTag("Enemy"))
         {
-            Enemy enemy = hitInfo.transform.GetComponent<Enemy>();
+           enemy.GetComponent<Enemy>().TakeDamage(damage);
         }
     }
 }

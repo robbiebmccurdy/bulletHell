@@ -4,26 +4,20 @@ using UnityEngine;
 
 public class BulletInteraction : MonoBehaviour
 {
-
+    
     public GameObject hitEffect;
-
-    public float speed = 20f;
-    public Rigidbody2D rb;
-    public int damage = 40;
 
     void Start()
     {
-        rb.velocity = transform.right * speed;
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
 
-   /* void OnCollisionEnter2D(Collision2D hitInfo)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        Enemy enemy = hitInfo.GetComponent<Enemy>();
-        
-        if(enemy != null)
-        {
-            enemy.TakeDamage(40);
-        }
+        Debug.Log(collision.gameObject.name);
+        GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+        Destroy(effect, 2f);
         Destroy(gameObject);
-    } */
+    }
 }
